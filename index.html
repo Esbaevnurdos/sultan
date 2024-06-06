@@ -51,12 +51,13 @@
         border: 1px solid #ccc;
         border-radius: 25px;
         box-sizing: border-box;
+        width: 100%;
       }
 
       .search-icon {
         position: absolute;
         top: 50%;
-        left: 15px;
+        right: 15px;
         transform: translateY(-50%);
         font-size: 20px;
         color: #ccc;
@@ -81,6 +82,8 @@
         transition: background-color 0.3s;
         cursor: pointer;
         flex-wrap: wrap;
+
+        width: 100%;
       }
 
       .barbershop-item:hover {
@@ -130,7 +133,7 @@
         }
 
         .search-icon {
-          left: 10px;
+          right: 10px;
         }
       }
 
@@ -160,11 +163,21 @@
           placeholder="Search Barbershop"
           class="search-bar"
         />
-        <i class="fa fa-search search-icon"></i>
+        <i class="fas fa-search search-icon"></i>
       </div>
     </div>
 
     <script>
+      // Load Font Awesome
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href =
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css";
+      link.integrity =
+        "sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+xlPqG8bduylvydZl6Qd9eW7";
+      link.crossOrigin = "anonymous";
+      document.head.appendChild(link);
+
       // Sample data for barbershops
       const barbershops = [
         {
@@ -172,21 +185,21 @@
           address: "Sulaimanova 19a",
           availability: "9:00-22:00",
           rating: "★★★☆☆",
-          logo: "https://via.placeholder.com/50",
+          logo: "assets/barber.jpg",
         },
         {
           name: "Barbershop Bella",
           address: "Main Street 10",
           availability: "10:00-20:00",
           rating: "★★★★☆",
-          logo: "https://via.placeholder.com/50",
+          logo: "assets/image.png",
         },
         {
           name: "Nurdaulet Shashtaraz",
           address: "Sulaimanova 19a",
           availability: "9:00-22:00",
           rating: "★★★★☆",
-          logo: "https://via.placeholder.com/50",
+          logo: "assets/barber.jpg",
         },
       ];
 
