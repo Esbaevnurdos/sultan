@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barbershop Booking</title>
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -23,35 +28,40 @@
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 100%;
-        height: 100%;
         max-width: 500px;
-        max-height: 500vh;
-        overflow: auto;
         box-sizing: border-box;
       }
       h1 {
         text-align: center;
         margin-bottom: 20px;
+        font-size: 24px;
       }
       label {
         display: block;
         margin-bottom: 5px;
-        font-size: 18px; /* Increased font size */
+        font-size: 18px;
       }
       input[type="text"],
       input[type="number"],
+      input[type="date"],
       select,
       textarea {
         width: 100%;
-        padding: 12px; /* Increased padding */
+        padding: 15px; /* Increased padding */
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
-        font-size: 18px; /* Increased font size */
+        font-size: 20px; /* Increased font size */
+      }
+      .flatpickr-input {
+        width: 100%;
+      }
+      .flatpickr-calendar {
+        width: 330px;
       }
       textarea {
-        height: 100px; /* Increased height */
+        height: 120px; /* Increased height */
       }
       .flex-row {
         display: flex;
@@ -63,17 +73,56 @@
       }
       button {
         width: 100%;
-        padding: 15px; /* Increased padding */
+        padding: 18px; /* Increased padding */
         background-color: #28a745;
         color: #fff;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         box-sizing: border-box;
-        font-size: 18px; /* Increased font size */
+        font-size: 20px; /* Increased font size */
       }
       button:hover {
         background-color: #218838;
+      }
+
+      /* Custom CSS for Flatpickr Calendar */
+      .flatpickr-calendar {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 20px;
+      }
+      .flatpickr-day {
+        height: 50px;
+        line-height: 50px;
+        width: 50px;
+        border-radius: 4px;
+        margin-left: 10px;
+      }
+      .flatpickr-day:hover {
+        background-color: #eee;
+      }
+      .flatpickr-day.selected,
+      .flatpickr-day.startRange,
+      .flatpickr-day.endRange {
+        background-color: #28a745;
+        color: #fff;
+      }
+      .flatpickr-day.today {
+        border-color: #28a745;
+        color: #28a745;
+      }
+      .flatpickr-month {
+        font-size: 20px;
+      }
+      .flatpickr-weekday {
+        font-size: 18px;
+        line-height: 40px;
+      }
+      .flatpickr-time input {
+        height: 40px;
+        font-size: 18px;
       }
     </style>
   </head>
@@ -114,7 +163,7 @@
         />
 
         <label for="date">Select Date:</label>
-        <input type="text" id="date" name="date" value="06/24/2024" required />
+        <input type="text" id="date" name="date" required />
 
         <label for="time">Available Time:</label>
         <select id="time" name="time" required>
@@ -132,5 +181,14 @@ curvy hair</textarea
         <button type="submit">Book a Haircut</button>
       </form>
     </div>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      // Initialize Flatpickr on the date input
+      flatpickr("#date", {
+        dateFormat: "m/d/Y",
+        defaultDate: "06/24/2024",
+      });
+    </script>
   </body>
 </html>
