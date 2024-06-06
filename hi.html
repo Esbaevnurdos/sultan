@@ -5,48 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Booking Details</title>
     <style>
+      /* Ensure the HTML and body elements take up full viewport height and width */
+      html,
       body {
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        background-color: #f4f4f9;
+        height: 100%;
+        width: 100%;
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        box-sizing: border-box;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: #f4f4f9;
       }
+
       .container {
         background: #fff;
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 500px;
         width: 100%;
+        max-width: 500px;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
+
       .header {
         text-align: center;
         margin-bottom: 20px;
       }
+
       .header h1 {
         font-size: 28px;
         color: #333;
         margin: 0;
       }
+
       .booking-details {
-        margin-bottom: 20px;
+        flex-grow: 1;
       }
+
       .booking-info {
         font-size: 16px;
         color: #555;
       }
+
       .booking-info p {
         margin: 10px 0;
         padding: 10px;
         border-bottom: 1px solid #eee;
       }
+
       .booking-info p strong {
         color: #333;
       }
+
       #ok-button {
         width: 100%;
         padding: 15px;
@@ -58,9 +76,47 @@
         font-size: 18px;
         font-weight: bold;
         text-align: center;
+        margin-top: 20px;
       }
+
       #ok-button:hover {
         background-color: #218838;
+      }
+
+      /* Responsive design */
+      @media (max-width: 576px) {
+        .container {
+          padding: 20px;
+        }
+
+        .header h1 {
+          font-size: 24px;
+        }
+
+        .booking-info p {
+          font-size: 14px;
+        }
+
+        #ok-button {
+          padding: 12px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .header h1 {
+          font-size: 20px;
+        }
+
+        .booking-info p {
+          font-size: 12px;
+          padding: 8px;
+        }
+
+        #ok-button {
+          padding: 10px;
+          font-size: 14px;
+        }
       }
     </style>
   </head>
@@ -79,8 +135,8 @@
           <p><strong>Gender:</strong> Male</p>
           <p><strong>Description:</strong> I need short hair</p>
         </div>
-        <button id="ok-button">OK</button>
       </div>
+      <button id="ok-button">OK</button>
     </div>
   </body>
 </html>
