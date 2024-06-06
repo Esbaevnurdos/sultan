@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Details</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        font-size: 28px;
+        color: #333;
+        margin: 0;
+      }
+      .booking-details {
+        margin-bottom: 20px;
+      }
+      .booking-info {
+        font-size: 16px;
+        color: #555;
+      }
+      .booking-info p {
+        margin: 10px 0;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      .booking-info p strong {
+        color: #333;
+      }
+      #ok-button {
+        width: 100%;
+        padding: 15px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+      }
+      #ok-button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Barbershop Arin 38#</h1>
+      </div>
+      <div class="booking-details">
+        <div class="booking-info">
+          <p><strong>Full Name:</strong> Nurdos</p>
+          <p><strong>Date:</strong> 05.05.2024</p>
+          <p><strong>Time:</strong> 10:30 AM</p>
+          <p><strong>Number:</strong> 87766393165</p>
+          <p><strong>Age:</strong> 17</p>
+          <p><strong>Gender:</strong> Male</p>
+          <p><strong>Description:</strong> I need short hair</p>
+        </div>
+        <button id="ok-button">OK</button>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("ok-button")
+        .addEventListener("click", function () {
+          window.location.href = "message.php";
+        });
+    </script>
+  </body>
+</html>

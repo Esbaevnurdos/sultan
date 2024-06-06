@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbershop Search</title>
+    <link rel="stylesheet" href="welcome.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .barbershop-list {
+        margin-top: 20px;
+      }
+
+      .barbershop-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s;
+        cursor: pointer;
+      }
+
+      .barbershop-item:hover {
+        background-color: #f0f0f0;
+      }
+
+      .barbershop-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+
+      .barbershop-details {
+        flex: 1;
+      }
+
+      .barbershop-name {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .barbershop-rating {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #ff9800;
+      }
+
+      .search-container {
+        position: relative;
+        width: 100%;
+      }
+
+      .search-bar {
+        width: 100%;
+        padding: 10px 40px 10px 20px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        box-sizing: border-box;
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #ccc;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchBar"
+          placeholder="Search Barbershop"
+          class="search-bar"
+        />
+        <i class="fa fa-search search-icon"></i>
+      </div>
+      <div class="barbershop-list" id="barbershopList">
+        <!-- Barbershop items will be inserted here by JavaScript -->
+      </div>
+    </div>
+
+    <script>
+      // Sample data for barbershops
+      const barbershops = [
+        {
+          name: "Barbershop Arin 38#",
+          address: "Sulaimanova 19a",
+          availability: "9:00-22:00",
+          rating: "★★★☆☆",
+          logo: "https://via.placeholder.com/50",
+        },
+        {
+          name: "Barbershop Bella",
+          address: "Main Street 10",
+          availability: "10:00-20:00",
+          rating: "★★★★☆",
+          logo: "https://via.placeholder.com/50",
+        },
+        {
+          name: "Nurdaulet Shashtaraz",
+          address: "Sulaimanova 19a",
+          availability: "9:00-22:00",
+          rating: "★★★★☆",
+          logo: "https://via.placeholder.com/50",
+        },
+      ];
+
+      // Function to display barbershop items
+      function displayBarbershops(barbershops) {
+        const barbershopList = document.getElementById("barbershopList");
+        barbershopList.innerHTML = "";
+
+        barbershops.forEach((barbershop) => {
+          const barbershopItem = document.createElement("div");
+          barbershopItem.className = "barbershop-item";
+
+          barbershopItem.innerHTML = `
+            <img src="${barbershop.logo}" alt="Barbershop Logo" class="barbershop-logo" />
+            <div class="barbershop-details">
+              <h2 class="barbershop-name">${barbershop.name}</h2>
+              <p>${barbershop.address}</p>
+              <p>Available: ${barbershop.availability}</p>
+            </div>
+            <div class="barbershop-rating">
+              <span>${barbershop.rating}</span>
+            </div>
+          `;
+
+          barbershopItem.addEventListener("click", () => {
+            window.location.href = "hello.html";
+          });
+
+          barbershopList.appendChild(barbershopItem);
+        });
+      }
+
+      // Function to filter barbershops based on search input
+      function filterBarbershops() {
+        const searchText = document
+          .getElementById("searchBar")
+          .value.toLowerCase();
+        const filteredBarbershops = barbershops.filter((barbershop) =>
+          barbershop.name.toLowerCase().includes(searchText)
+        );
+        displayBarbershops(filteredBarbershops);
+      }
+
+      // Initial display of barbershops
+      displayBarbershops(barbershops);
+
+      // Add event listener to search bar
+      document
+        .getElementById("searchBar")
+        .addEventListener("keyup", filterBarbershops);
+    </script>
+  </body>
+</html>
