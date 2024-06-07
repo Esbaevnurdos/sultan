@@ -63,13 +63,12 @@
     </style>
   </head>
   <body>
-    <h1>Bookings Chat</h1>
+    <h1>Barbershop Arin #38</h1>
     <div id="chatContainer"></div>
     <script>
       // Sample data for bookings
       const bookings = [
         {
-          id: 1,
           date: "2024-06-06",
           time: "10:00 AM",
           number: "1234567890",
@@ -79,7 +78,6 @@
           fullname: "John Doe",
         },
         {
-          id: 2,
           date: "2024-06-07",
           time: "12:00 PM",
           number: "0987654321",
@@ -89,7 +87,6 @@
           fullname: "Jane Smith",
         },
         {
-          id: 3,
           date: "2024-06-08",
           time: "02:00 PM",
           number: "1122334455",
@@ -109,7 +106,7 @@
           const message = document.createElement("div");
           message.classList.add("message");
           message.innerHTML = `
-            <p><strong>ID:</strong> ${booking.id}</p>
+         
             <p><strong>Date:</strong> ${booking.date}</p>
             <p><strong>Time:</strong> ${booking.time}</p>
             <p><strong>Number:</strong> ${booking.number}</p>

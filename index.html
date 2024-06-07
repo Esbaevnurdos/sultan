@@ -39,9 +39,11 @@
       }
 
       .search-container {
-        position: relative;
-        width: 100%;
-        margin-top: auto;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        background-color: white;
       }
 
       .search-bar {
@@ -51,13 +53,12 @@
         border: 1px solid #ccc;
         border-radius: 25px;
         box-sizing: border-box;
-        width: 100%;
       }
 
       .search-icon {
         position: absolute;
         top: 50%;
-        right: 15px;
+        left: 15px;
         transform: translateY(-50%);
         font-size: 20px;
         color: #ccc;
@@ -82,8 +83,6 @@
         transition: background-color 0.3s;
         cursor: pointer;
         flex-wrap: wrap;
-
-        width: 100%;
       }
 
       .barbershop-item:hover {
@@ -108,9 +107,8 @@
       }
 
       .barbershop-rating {
-        margin-left: 10px;
         font-size: 14px;
-        color: #ff9800;
+        color: #5cb299;
       }
 
       @media (max-width: 600px) {
@@ -119,8 +117,9 @@
         }
 
         .barbershop-item {
-          flex-direction: column;
+          /* flex-direction: column; */
           align-items: flex-start;
+          gap: 10px;
         }
 
         .barbershop-logo {
@@ -133,7 +132,7 @@
         }
 
         .search-icon {
-          right: 10px;
+          left: 10px;
         }
       }
 
@@ -141,11 +140,43 @@
         .container {
           padding: 10px;
         }
+
+        .search-bar {
+          padding: 10px 25px 10px 10px;
+        }
+
+        .search-icon {
+          left: 5px;
+        }
+
+        .barbershop-name {
+          font-size: 16px;
+        }
+
+        .barbershop-rating {
+          font-size: 12px;
+        }
       }
 
       @media (max-width: 320px) {
         .container {
           padding: 10px;
+        }
+
+        .search-bar {
+          padding: 10px 20px 10px 5px;
+        }
+
+        .search-icon {
+          left: 5px;
+        }
+
+        .barbershop-name {
+          font-size: 14px;
+        }
+
+        .barbershop-rating {
+          font-size: 12px;
         }
       }
     </style>
@@ -163,21 +194,11 @@
           placeholder="Search Barbershop"
           class="search-bar"
         />
-        <i class="fas fa-search search-icon"></i>
+        <i class="fa fa-search search-icon"></i>
       </div>
     </div>
 
     <script>
-      // Load Font Awesome
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href =
-        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css";
-      link.integrity =
-        "sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+xlPqG8bduylvydZl6Qd9eW7";
-      link.crossOrigin = "anonymous";
-      document.head.appendChild(link);
-
       // Sample data for barbershops
       const barbershops = [
         {
@@ -201,9 +222,30 @@
           rating: "★★★★☆",
           logo: "assets/barber.jpg",
         },
+        {
+          name: "Erkebulan Ukam",
+          address: "Sulaimanova 19a",
+          availability: "9:00-22:00",
+          rating: "★★★★☆",
+          logo: "assets/image.png",
+        },
+        {
+          name: "Artur Kerek",
+          address: "Sulaimanova 19a",
+          availability: "9:00-22:00",
+          rating: "★★★★☆",
+          logo: "assets/barber.jpg",
+        },
+        {
+          name: "Lusy Leonardo",
+          address: "Sulaimanova 19a",
+          availability: "9:00-22:00",
+          rating: "★★★★☆",
+          logo: "assets/image.png",
+        },
       ];
 
-      // Function to display barbershop items
+      // Function to display barbershops
       function displayBarbershops(barbershops) {
         const barbershopList = document.getElementById("barbershopList");
         barbershopList.innerHTML = "";
@@ -213,16 +255,16 @@
           barbershopItem.className = "barbershop-item";
 
           barbershopItem.innerHTML = `
-            <img src="${barbershop.logo}" alt="Barbershop Logo" class="barbershop-logo" />
-            <div class="barbershop-details">
-              <h2 class="barbershop-name">${barbershop.name}</h2>
-              <p>${barbershop.address}</p>
-              <p>Available: ${barbershop.availability}</p>
-            </div>
-            <div class="barbershop-rating">
-              <span>${barbershop.rating}</span>
-            </div>
-          `;
+          <img src="${barbershop.logo}" alt="Barbershop Logo" class="barbershop-logo" />
+          <div class="barbershop-details">
+            <h2 class="barbershop-name">${barbershop.name}</h2>
+            <p>${barbershop.address}</p>
+            <p>Available: ${barbershop.availability}</p>
+          </div>
+          <div class="barbershop-rating">
+            <span>${barbershop.rating}</span>
+          </div>
+        `;
 
           barbershopItem.addEventListener("click", () => {
             window.location.href = "hello.html";

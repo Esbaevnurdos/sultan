@@ -4,223 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barbershop Booking</title>
-    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120vh;
-        width: 100vw;
-        box-sizing: border-box;
-      }
-      .container {
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        height: 100%;
-        max-width: 500px;
-        
-        box-sizing: border-box;
-      }
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 24px;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 18px;
-      }
-      input[type="text"],
-      input[type="number"],
-      input[type="date"],
-      select,
-      textarea {
-        width: 100%;
-        padding: 15px; /* Increased padding */
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 20px; /* Increased font size */
-      }
-      .flatpickr-input {
-        width: 100%;
-      }
-      .flatpickr-calendar {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      textarea {
-        height: 120px; /* Increased height */
-      }
-      .flex-row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-      .flex-row .fl {
-        flex: 1;
-      }
-      button {
-        width: 100%;
-        padding: 18px; /* Increased padding */
-        background-color: #28a745;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        box-sizing: border-box;
-        font-size: 20px; /* Increased font size */
-      }
-      button:hover {
-        background-color: #218838;
-      }
-
-      /* Custom CSS for Flatpickr Calendar */
-      .flatpickr-calendar {
-        background-color: #ffffff;
-        border: 1px solid #dcdcdc;
-        border-radius: 8px;
-        font-size: 18px;
-      }
-      .flatpickr-months {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-      }
-      .flatpickr-month {
-        font-size: 18px;
-        color: #333;
-      }
-      .flatpickr-weekdays {
-        background-color: #28a745;
-        color: #fff;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        padding: 10px 0;
-      }
-      .flatpickr-weekday {
-        font-size: 16px;
-        font-weight: bold;
-      }
-      .flatpickr-days {
-        background-color: #f8f8f8;
-        padding: 10px;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-      }
-      .flatpickr-day {
-        height: 40px;
-        line-height: 40px;
-        width: 40px;
-        border-radius: 4px;
-        margin: 5px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-      }
-      .flatpickr-day:hover {
-        background-color: #eee;
-      }
-      .flatpickr-day.selected,
-      .flatpickr-day.startRange,
-      .flatpickr-day.endRange {
-        background-color: #28a745;
-        color: #fff;
-      }
-      .flatpickr-day.today {
-        border-color: #28a745;
-        color: #28a745;
-      }
-      .flatpickr-time input {
-        height: 40px;
-        font-size: 18px;
+      /* Calendar input style adjustments for responsiveness */
+      .ui-datepicker {
+        font-size: 19px; /* Adjust the size as needed */
       }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Barbershop Arin 38#</h1>
-      <form action="hi.html" method="GET">
+      <form action="hi.html" method="POST">
         <label for="fullname">Full Name:</label>
-        <input
-          type="text"
-          id="fullname"
-          name="fullname"
-          value="Zhomart"
-          required
-        />
+        <input type="text" id="fullname" name="fullname" required />
 
-        <div class="flex-row">
+        <div class="flex">
           <div class="fl">
             <label for="age">Age:</label>
-            <input type="number" id="age" name="age" value="16" required />
+            <input type="number" id="age" name="age" required />
           </div>
           <div class="fl">
             <label for="gender">Gender:</label>
             <select id="gender" name="gender" required>
-              <option value="MALE" selected>MALE</option>
+              <option value="MALE">MALE</option>
               <option value="FEMALE">FEMALE</option>
             </select>
           </div>
         </div>
 
         <label for="number">Number:</label>
-        <input
-          type="text"
-          id="number"
-          name="number"
-          value="7776666644"
-          required
-        />
+        <input type="tel" id="number" name="number" required />
 
-        <label for="date"> </label>
-  
-        Select Date:</label>
+        <label for="date">Select Date:</label>
         <input type="text" id="date" name="date" required />
 
         <label for="time">Available Time:</label>
         <select id="time" name="time" required>
           <option value="09:00 AM">09:00 AM</option>
           <option value="09:30 AM">09:30 AM</option>
-          <option value="10:00 AM" selected>10:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
           <option value="10:30 AM">10:30 AM</option>
         </select>
 
         <label for="description">Describe your haircut:</label>
-        <textarea id="description" name="description" required>curvy hair</textarea>
+        <textarea id="description" name="description" required></textarea>
 
-        <button type="submit">Book a Haircut</button>
+        <button type="submit">
+          <a style="color: white; text-decoration: none" href="hi.html"
+            >Book a Haircut</a
+          >
+        </button>
       </form>
     </div>
-    <!-- Flatpickr JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <script>
-      // Initialize Flatpickr on the date input
-      flatpickr("#date", {
-        dateFormat: "m/d/Y",
-        defaultDate: "06/24/2024",
+      $(function () {
+        $("#date").datepicker({
+          showAnim: "slideDown",
+          dateFormat: "mm/dd/yy",
+          minDate: 0, // Prevent selecting past dates
+        });
+
+        document
+          .getElementById("number")
+          .addEventListener("input", function (e) {
+            this.value = this.value.replace(/[^0-9]/g, "");
+          });
       });
     </script>
   </body>
 </html>
-

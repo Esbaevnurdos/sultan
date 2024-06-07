@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  height: 100%;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+input,
+select,
+textarea,
+button {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+  gap: 20px; /* Adds space between Age and Gender fields */
+}
+
+.fl {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensure both flex items take equal width */
+}
+
+button {
+  background-color: #36b7a8;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #2a9b8d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 375px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+}
